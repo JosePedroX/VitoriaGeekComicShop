@@ -1,24 +1,41 @@
 body {
-    background-image: url('');
+    background-image: url('/planosdefundo/iconimage.png');
+    opacity: 0.9;
     background-size: cover;
     background-attachment: fixed;
     background-position: center center;
-    background-color: #7baf40;
-    height: 100vh;
+    background-color: #993838;
     margin: 0;
+    font-weight: 300;
+    border: 2px solid;
+    padding: 10px;
+    background-color:  aqua;
+    border-radius: 8px;
+}
+
+h1, h2 {
+    border: 2px solid #000; 
+    padding: 10px; 
+    margin: 10px; 
+    margin: 0;
+    font-weight: 300;
+    border: 2px solid;
+    padding: 10px;
+    background-color:  rgb(230, 190, 16);
+    border-radius: 8px;
 }
 
 h1 {
     text-align: center;
-    color: #f04236;
-    font-family: 'Arial', sans-serif;
+    color: #0dc21c;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-top: 0;
     padding-top: 20px;
 }
 
 h2 {
     text-align: center;
-    color: #d11515;
+    color: #0dc21c;
     font-family: 'Arial', sans-serif;
     margin-top: 0;
     padding-top: 20px;
@@ -26,10 +43,14 @@ h2 {
 
 p {
     text-align: center;
-    color: #ac0101;
+    color: #fd0000;
     font-family: 'Arial', sans-serif;
     margin-top: 0;
     padding-top: 20px;
+    border: 2px solid;
+    padding: 10px;
+    background-color:  #0dff21;
+    border-radius: 8px;
 }
 
 h3 {
