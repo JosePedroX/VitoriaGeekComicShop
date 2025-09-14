@@ -1,69 +1,176 @@
-body {
-    background-image: url('/planosdefundo/iconimage.png');
-    opacity: 0.9;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center center;
-    background-color: #993838;
-    margin: 0;
-    font-weight: 300;
-    border: 2px solid;
-    padding: 10px;
-    background-color:  aqua;
-    border-radius: 8px;
+/* ===============================
+   Vitória Geek — tema tipo ReadZone
+   Paleta do logo: laranja/amarelo + verde/azul
+================================= */
+
+:root{
+  --ink: #121316;            /* preto “tinta” */
+  --navy: #1d232b;           /* texto primário */
+  --paper: #ffffff;          /* base branca */
+  --panel: #f6f7fb;          /* painel claro */
+
+  --vg-orange:#ff7a00;       /* VITÓRIA (início gradiente) */
+  --vg-yellow:#ffcc33;       /* VITÓRIA (fim gradiente) */
+  --vg-green:#65c83d;        /* GEEK (verde) */
+  --vg-blue:#2aa9e0;         /* GEEK (azul) */
+  --danger:#ff5a6a;
+
+  --radius:12px;
+  --shadow:0 8px 32px #0002;
+  --shadow-soft:0 2px 8px #0001;
+
+  --bg-pattern-url:url('/planosdefundo/iconimage.png');
 }
 
-h1, h2 {
-    border: 2px solid #000; 
-    padding: 10px; 
-    margin: 10px; 
-    margin: 0;
-    font-weight: 300;
-    border: 2px solid;
-    padding: 10px;
-    background-color:  rgb(230, 190, 16);
-    border-radius: 8px;
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:'Inter', Arial, sans-serif;
+  color:var(--navy);
+  background: var(--bg-pattern-url) repeat center fixed;
+  background-size: 440px 440px;
+  position:relative;
+}
+body::before{ /* véu branco como no ReadZone */
+  content:""; position:fixed; inset:0;
+  background:rgba(255,255,255,.92); pointer-events:none; z-index:-1;
 }
 
-h1 {
-    text-align: center;
-    color: #0dc21c;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin-top: 0;
-    padding-top: 20px;
+img{max-width:100%; display:block}
+
+/* “Marca” Vitória Geek (aplique em qualquer título com a classe .brand) */
+.brand{
+  font-family:'Merriweather', serif;
+  font-weight:800;
+  background:linear-gradient(90deg,var(--vg-orange),var(--vg-yellow));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter: drop-shadow(0 1px 0 #00000018);
 }
 
-h2 {
-    text-align: center;
-    color: #0dc21c;
-    font-family: 'Arial', sans-serif;
-    margin-top: 0;
-    padding-top: 20px;
+/* Cabeçalhos principais */
+h1,h2,h3{
+  margin:16px auto 12px;
+  line-height:1.25;
+  color:var(--ink);
+  text-align:center;
+}
+h1{
+  font-size:clamp(1.6rem, 2.2vw + 1rem, 2.2rem);
+  padding:14px 18px;
+  border-radius:10px;
+  background:#fff;
+  border:1.5px solid #eceff4;
+  box-shadow:var(--shadow-soft);
+}
+h1 .brand{display:inline-block}
+
+h2{
+  font-size:1.3rem;
+  padding:10px 14px;
+  border-radius:10px;
+  background:#fff7e2; /* amarelo suave */
+  border:1.5px solid #ffe08a;
+  width:fit-content;
+}
+h3{
+  font-size:1.15rem;
+  font-weight:800;
+  margin-top:24px;
 }
 
-p {
-    text-align: center;
-    color: #fd0000;
-    font-family: 'Arial', sans-serif;
-    margin-top: 0;
-    padding-top: 20px;
-    border: 2px solid;
-    padding: 10px;
-    background-color:  #0dff21;
-    border-radius: 8px;
+/* Texto */
+p{
+  max-width:1100px;
+  margin:10px auto;
+  padding:14px 18px;
+  background:#fff;
+  border:1.5px solid #e9ebf0;
+  border-radius:10px;
+  box-shadow:var(--shadow-soft);
+  color:#3f4a5c;
 }
 
-h3 {
-    text-align: left;
-    color: #660404;
-    font-family: 'Arial', sans-serif;
-    margin-top: 0;
-    padding-top: 20px;
+/* Links (efeito ReadZone) */
+a{
+  color:var(--vg-blue);
+  text-decoration:none;
+  font-weight:600;
+  border-bottom:2px solid transparent;
+  transition:color .14s, border-color .14s, background .14s;
+  padding:2px 4px;
+  border-radius:6px;
+}
+a:hover{
+  color:#0f6e9a;
+  background:#eaf7ff;
+  border-color:#bfe9ff;
 }
 
-ul {
-    color: #ec1414;
-    font-family: 'Arial', sans-serif;
-    margin-top: 0;
-    padding-top: 20px;
+/* Lista de categorias/produtos */
+ul{
+  list-style:none;
+  padding:0;
+  margin:14px auto 24px;
+  max-width:900px;
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap:12px;
+}
+ul li{
+  background:#fff;
+  border:1.5px solid #e9ebf0;
+  border-radius:12px;
+  padding:12px 14px;
+  box-shadow:var(--shadow-soft);
+  transition:transform .12s, box-shadow .16s, border-color .14s;
+}
+ul li:hover{
+  transform:translateY(-4px);
+  box-shadow:0 9px 24px #0003, 0 2px 8px #2aa9e044;
+  border-color:#cfe6ff;
+}
+
+/* Container “intro” (faixa de destaque) */
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 16px;
+}
+.intro p{
+  background:linear-gradient(90deg, #e8fff0, #eaf7ff);
+  border-color:#cfe6ff;
+  color:#233244;
+}
+
+/* Footer */
+footer{
+  margin:26px 0 0;
+  padding:18px 10px;
+  text-align:center;
+  color:#b5b8c3;
+  background:#181b21;
+  border-top:2px solid #eceff4;
+  font-size:.97rem;
+}
+
+/* “Botão” utilitário (caso queira usar) */
+.btn{
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:10px;
+  color:#fff;
+  background:linear-gradient(90deg, var(--vg-orange), var(--vg-yellow));
+  box-shadow:var(--shadow-soft);
+  font-weight:800;
+  letter-spacing:.3px;
+  transition:transform .12s, filter .16s;
+}
+.btn:hover{ transform:translateY(-2px); filter:brightness(1.05); }
+
+/* Responsivo */
+@media (max-width:700px){
+  ul{ grid-template-columns:1fr; }
+  p{ padding:12px 14px; }
 }
